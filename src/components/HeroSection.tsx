@@ -44,7 +44,7 @@ const HeroSection = () => {
         >
           <motion.div variants={itemVariants} className="mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-foreground text-white">
-              Your Trusted AI-powered
+              AI-powered
               <span className="text-primary text-white"> Cybersecurity</span>
               <br />Tools Directory
             </h1>
