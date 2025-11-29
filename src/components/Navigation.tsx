@@ -101,6 +101,17 @@ const Navigation = () => {
               Compare
             </Link>
 
+            <Link
+              to="/roadmap"
+              className={`text-sm font-medium hover:text-primary transition-colors ${
+                location.pathname === "/roadmap"
+                  ? "text-black"
+                  : "text-muted-foreground"
+              }`}
+            >
+              roadmap
+            </Link>
+
             {user ? (
               <div className="flex items-center space-x-2">
                 <Button
@@ -212,6 +223,17 @@ const Navigation = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Compare
+              </Link>
+              <Link
+                to="/roadmap"
+                className={`block text-base font-medium hover:text-primary transition-colors ${
+                  location.pathname === "/roadmap"
+                    ? "text-black"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Roadmap
               </Link>
 
               <div className="pt-4 border-t border-border">

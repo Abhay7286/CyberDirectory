@@ -20,6 +20,7 @@ import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import ScrollToTop from "./components/scrollToTop";
 import Comparison from "./pages/Camparison";
+import Roadmap from "./pages/Roadmap";
 
 const queryClient = new QueryClient();
 
@@ -146,6 +147,14 @@ const App = () => (
               element={
                 <PageTransition>
                   <Comparison />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/roadmap"
+              element={
+                <PageTransition>
+                  <Roadmap/>
                 </PageTransition>
               }
             />
