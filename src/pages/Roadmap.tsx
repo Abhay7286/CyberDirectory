@@ -204,7 +204,7 @@ Rules:
                         CyberSkill Roadmap Generator
                     </h1>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Create a personalized learning roadmap using AI and Supabase tools database
+                        Create a personalized learning roadmap using AI 
                     </p>
                 </div>
 
