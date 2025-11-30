@@ -195,226 +195,195 @@ Rules:
 
 
     return (
-        <div className="min-h-screen bg-background">
-            <Header />
+  <div className="min-h-screen bg-background">
+    <Header />
 
-            <div className="container mx-auto px-4 py-12 max-w-6xl">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        CyberSkill Roadmap Generator
-                    </h1>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Create a personalized learning roadmap using AI 
-                    </p>
-                </div>
+    <div className="container mx-auto px-4 py-12 max-w-6xl">
 
-                {/* FORM */}
-                <Card className="bg-card border-cyber mb-12">
-                    <CardHeader>
-                        <CardTitle className="text-2xl text-center">Configure Your Roadmap</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <Label>Select Cyber Role</Label>
-                                <Select value={role} onValueChange={setRole}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Target role" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="penetration tester">Penetration Tester</SelectItem>
-                                        <SelectItem value="red team operator">Red Team Operator</SelectItem>
-                                        <SelectItem value="security analyst">Security Analyst</SelectItem>
-                                        <SelectItem value="incident responder">Incident Response</SelectItem>
-                                        <SelectItem value="malware analyst">Malware Analyst</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+      {/* Hero Section */}
+      <div className="text-center mb-16 space-y-4">
+        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4 tracking-tight">
+          CyberSkill Roadmap
+        </h1>
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          Chart your path to cybersecurity mastery with a personalized learning roadmap
+        </p>
+      </div>
 
-                            <div className="space-y-2">
-                                <Label>Experience Level</Label>
-                                <Select value={experience} onValueChange={setExperience}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Your level" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="beginner">Beginner</SelectItem>
-                                        <SelectItem value="intermediate">Intermediate</SelectItem>
-                                        <SelectItem value="advanced">Advanced</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+      {/* ===== CONFIG CARD ===== */}
+      <Card className="mb-16 border bg-card">
+        <CardContent className="p-8 space-y-8">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
+              Configure Your Journey
+            </h2>
+            <p className="text-muted-foreground">
+              Customize your roadmap to match your goals and experience
+            </p>
+          </div>
 
-                            <div className="space-y-2">
-                                <Label>Hours per Week</Label>
-                                <Input
-                                    type="number"
-                                    placeholder="e.g., 10"
-                                    value={hoursPerWeek}
-                                    onChange={(e) => setHoursPerWeek(e.target.value)}
-                                />
-                            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                            <div className="space-y-2">
-                                <Label>Optional Goal</Label>
-                                <Input
-                                    placeholder="e.g., OSCP in 6 months"
-                                    value={goal}
-                                    onChange={(e) => setGoal(e.target.value)}
-                                />
-                            </div>
-                        </div>
-
-                        <Button
-                            onClick={generateRoadmap}
-                            className="w-full h-14 text-lg font-semibold bg-cyber hover:bg-cyber/80 text-black"
-                            disabled={!role || !experience || !hoursPerWeek}
-                        >
-                            Generate Roadmap
-                        </Button>
-                    </CardContent>
-                </Card>
-
-                {/* ---------------- SVG OUTPUT ---------------- */}
-                {roadmap.length > 0 && (
-                    <div className="space-y-8">
-                        <div
-                            ref={roadmapRef}
-                            className="bg-card border border-cyber rounded-lg p-8 overflow-x-auto"
-                        >
-                            <svg width="100%" height="600" viewBox="0 0 1400 600" className="min-w-[1400px]">
-
-                                {/* CONNECTING LINES */}
-                                {roadmap.map((_, index) => {
-                                    if (index < roadmap.length - 1) {
-                                        const x1 = 150 + index * 330;
-                                        return (
-                                            <line
-                                                key={index}
-                                                x1={x1 + 150}
-                                                y1="300"
-                                                x2={x1 + 330}
-                                                y2="300"
-                                                stroke="hsl(var(--cyber))"
-                                                strokeWidth="2"
-                                                strokeDasharray="5,5"
-                                            />
-                                        );
-                                    }
-                                })}
-
-                                {/* STAGE CARDS */}
-                                {roadmap.map((stage, index) => {
-                                    const x = 50 + index * 330;
-
-                                    return (
-                                        <g key={stage.stage}>
-                                            <rect
-                                                x={x}
-                                                y={50}
-                                                width="300"
-                                                height="500"
-                                                fill="hsl(var(--background))"
-                                                stroke="hsl(var(--cyber))"
-                                                strokeWidth="2"
-                                                rx="8"
-                                            />
-
-                                            <rect
-                                                x={x}
-                                                y={50}
-                                                width="300"
-                                                height="50"
-                                                fill="hsl(var(--cyber))"
-                                                rx="8"
-                                            />
-
-                                            <text
-                                                x={x + 150}
-                                                y={82}
-                                                textAnchor="middle"
-                                                fill="hsl(var(--background))"
-                                                fontSize="18"
-                                                fontWeight="bold"
-                                            >
-                                                Stage {stage.stage}: {stage.title}
-                                            </text>
-
-                                            {/* Skills */}
-                                            <text x={x + 10} y={125} fill="hsl(var(--cyber))" fontSize="14" fontWeight="bold">
-                                                Skills:
-                                            </text>
-                                            {stage.skills.map((skill, i) => (
-                                                <text key={i} x={x + 10} y={145 + i * 20} fill="hsl(var(--foreground))" fontSize="12">
-                                                    • {skill}
-                                                </text>
-                                            ))}
-
-                                            {/* Tools */}
-                                            <text x={x + 10} y={230} fill="hsl(var(--cyber))" fontSize="14" fontWeight="bold">
-                                                Tools:
-                                            </text>
-                                            {stage.tools.map((tool, i) => (
-                                                <g key={i}>
-                                                    <text
-                                                        x={x + 10}
-                                                        y={250 + i * 55}
-                                                        fill="hsl(var(--foreground))"
-                                                        fontSize="12"
-                                                        fontWeight="bold"
-                                                    >
-                                                        • {tool.name}
-                                                    </text>
-                                                    <text
-                                                        x={x + 20}
-                                                        y={265 + i * 55}
-                                                        fill="hsl(var(--muted-foreground))"
-                                                        fontSize="10"
-                                                    >
-                                                        {tool.description.slice(0, 40)}
-                                                    </text>
-                                                    {tool.description.length > 40 && (
-                                                        <text
-                                                            x={x + 20}
-                                                            y={277 + i * 55}
-                                                            fill="hsl(var(--muted-foreground))"
-                                                            fontSize="10"
-                                                        >
-                                                            {tool.description.slice(40)}
-                                                        </text>
-                                                    )}
-                                                </g>
-                                            ))}
-
-                                            {/* Certifications */}
-                                            <text x={x + 10} y={440} fill="hsl(var(--cyber))" fontSize="14" fontWeight="bold">
-                                                Certifications:
-                                            </text>
-                                            {stage.certifications.map((cert, i) => (
-                                                <text key={i} x={x + 10} y={460 + i * 20} fill="hsl(var(--foreground))" fontSize="12">
-                                                    • {cert}
-                                                </text>
-                                            ))}
-                                        </g>
-                                    );
-                                })}
-                            </svg>
-                        </div>
-
-                        {/* Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button onClick={downloadAsSVG} variant="outline" className="border-cyber text-cyber hover:bg-cyber hover:text-black">
-                                <FileDown className="mr-2 h-4 w-4" /> Download SVG
-                            </Button>
-                            <Button onClick={downloadAsImage} variant="outline" className="border-cyber text-cyber hover:bg-cyber hover:text-black">
-                                <Download className="mr-2 h-4 w-4" /> Download PNG
-                            </Button>
-                        </div>
-                    </div>
-                )}
+            {/* Role */}
+            <div className="space-y-3">
+              <Label className="text-lg font-semibold text-foreground">Target Role</Label>
+              <Select value={role} onValueChange={setRole}>
+                <SelectTrigger className="h-12">
+                  <SelectValue placeholder="Select your cybersecurity path" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="penetration tester">Penetration Tester</SelectItem>
+                  <SelectItem value="red team operator">Red Team Operator</SelectItem>
+                  <SelectItem value="security analyst">Security Analyst</SelectItem>
+                  <SelectItem value="incident responder">Incident Response</SelectItem>
+                  <SelectItem value="malware analyst">Malware Analyst</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
-        </div>
-    );
-};
 
+            {/* Experience */}
+            <div className="space-y-3">
+              <Label className="text-lg font-semibold text-foreground">Experience Level</Label>
+              <Select value={experience} onValueChange={setExperience}>
+                <SelectTrigger className="h-12">
+                  <SelectValue placeholder="Your current skill level" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="beginner">Beginner</SelectItem>
+                  <SelectItem value="intermediate">Intermediate</SelectItem>
+                  <SelectItem value="advanced">Advanced</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Hours */}
+            <div className="space-y-3">
+              <Label className="text-lg font-semibold text-foreground">Weekly Commitment</Label>
+              <Input
+                type="number"
+                placeholder="e.g., 10 hours"
+                value={hoursPerWeek}
+                onChange={(e) => setHoursPerWeek(e.target.value)}
+                className="h-12 text-lg"
+              />
+            </div>
+
+            {/* Goal */}
+            <div className="space-y-3">
+              <Label className="text-lg font-semibold text-foreground">Your Mission (Optional)</Label>
+              <Input
+                placeholder="e.g., Get OSCP in 6 months"
+                value={goal}
+                onChange={(e) => setGoal(e.target.value)}
+                className="h-12 text-lg"
+              />
+            </div>
+          </div>
+
+          <Button
+            onClick={generateRoadmap}
+            className="w-full h-16 text-xl font-bold"
+            disabled={!role || !experience || !hoursPerWeek}
+          >
+            Generate My Roadmap
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* ===== ROADMAP DISPLAY ===== */}
+      {roadmap.length > 0 && (
+        <div className="space-y-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground mb-2">
+              Your Personalized Roadmap
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Follow this path to achieve your cybersecurity goals
+            </p>
+          </div>
+
+          <div id="roadmap-content" className="space-y-6">
+
+            {roadmap.map((stage) => (
+              <Card key={stage.stage} className="border bg-card">
+                <CardContent className="p-8">
+
+                  {/* Header */}
+                  <div className="mb-6 pb-6 border-b">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-foreground">
+                        {stage.stage}
+                      </div>
+                      <h3 className="text-3xl font-bold text-foreground">{stage.title}</h3>
+                    </div>
+                  </div>
+
+                  {/* Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    {/* Skills */}
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground mb-4">Core Skills</h4>
+                      <ul className="space-y-3">
+                        {stage.skills.map((skill, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <div className="w-2 h-2 rounded-full mt-2 bg-foreground" />
+                            <span className="text-foreground text-lg">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Tools */}
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground mb-4">Essential Tools</h4>
+                      <div className="space-y-4">
+                        {stage.tools.map((tool, i) => (
+                          <div key={i} className="p-4 rounded-lg bg-muted border border-border">
+                            <h5 className="font-bold text-lg mb-2 text-foreground">{tool.name}</h5>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                              {tool.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Certifications */}
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground mb-4">Certifications</h4>
+                      <ul className="space-y-3">
+                        {stage.certifications.map((cert, i) => (
+                          <li key={i}>
+                            <div className="p-3 rounded-lg border text-center font-semibold text-foreground">
+                              {cert}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Download Buttons */}
+          <div className="flex justify-center pt-8 gap-4">
+            <Button onClick={downloadAsSVG} variant="outline">
+              <Download className="mr-2 w-4 h-4" /> Download SVG
+            </Button>
+            <Button onClick={downloadAsImage} variant="outline">
+              <Download className="mr-2 w-4 h-4" /> Download PNG
+            </Button>
+          </div>
+
+        </div>
+      )}
+    </div>
+  </div>
+);
+
+};
 export default Roadmap;
