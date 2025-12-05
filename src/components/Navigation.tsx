@@ -111,6 +111,16 @@ const Navigation = () => {
             >
               roadmap
             </Link>
+            <Link
+              to="/collections"
+              className={`text-sm font-medium hover:text-primary transition-colors ${
+                location.pathname === "/collections"
+                  ? "text-black"
+                  : "text-muted-foreground"
+              }`}
+            >
+              collections
+            </Link>
 
             {user ? (
               <div className="flex items-center space-x-2">
@@ -234,6 +244,17 @@ const Navigation = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Roadmap
+              </Link>
+              <Link
+                to="/collections"
+                className={`block text-base font-medium hover:text-primary transition-colors ${
+                  location.pathname === "/collections"
+                    ? "text-black"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Collections
               </Link>
 
               <div className="pt-4 border-t border-border">

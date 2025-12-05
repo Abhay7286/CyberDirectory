@@ -21,6 +21,7 @@ import Admin from "./pages/Admin";
 import ScrollToTop from "./components/scrollToTop";
 import Comparison from "./pages/Camparison";
 import Roadmap from "./pages/Roadmap";
+import Collections from "./pages/Collections";
 
 const queryClient = new QueryClient();
 
@@ -155,6 +156,14 @@ const App = () => (
               element={
                 <PageTransition>
                   <Roadmap/>
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/collections"
+              element={
+                <PageTransition>
+                  <Collections/>
                 </PageTransition>
               }
             />

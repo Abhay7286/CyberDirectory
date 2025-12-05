@@ -2,13 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  /**
-   * This pre-bundles dependencies to optimize Vite startup.
-   * When the server restarts, dependencies like React are already cached,
-   * so reloads are much faster.
-   */
   optimizeDeps: {
     include: [
       "@hookform/resolvers", "@radix-ui/react-accordion", "@radix-ui/react-alert-dialog",
@@ -29,19 +23,18 @@ export default defineConfig(({ mode }) => ({
   },
 
   server: {
-    host: "::", // Enables IPv6 and external access
-    port: 8080
+    host: "::",
+    port: 8080,
+    historyApiFallback: true, // 🔥 Fix refresh 404
   },
 
   plugins: [
     react(),
-  ].filter(Boolean),
+  ],
 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-
-  appType: 'mpa',
 }));

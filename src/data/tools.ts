@@ -23,6 +23,17 @@ export interface Tool {
   total_reviews?: number; // Optional total reviews count
 }
 
+export interface Collection {
+  id: string;
+  user_id: string;
+  name: string;
+  description: string | null;
+  tool_ids: string[];  // array of tool UUIDs
+  is_public: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
 // Add this interface near your other type definitions
 export interface VoteHistory {
   tool_id: string;
