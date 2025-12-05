@@ -77,8 +77,13 @@ const OSINTFeaturesSection = () => {
           </p>
         </motion.div>
 
-        <div id="ezoic-pub-ad-placeholder-115"></div>
-        <div id="ezoic-pub-ad-placeholder-114"></div>
+        <div className="my-8 flex justify-center">
+          <div id="ezoic-pub-ad-placeholder-115"></div>
+        </div>
+
+        <div className="my-8 flex justify-center">
+          <div id="ezoic-pub-ad-placeholder-114"></div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
