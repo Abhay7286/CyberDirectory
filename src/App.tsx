@@ -22,6 +22,7 @@ import ScrollToTop from "./components/scrollToTop";
 import Comparison from "./pages/Camparison";
 import Roadmap from "./pages/Roadmap";
 import Collections from "./pages/Collections";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -172,6 +173,14 @@ const App = () => (
               element={
                 <PageTransition>
                   <Admin />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/privacy-policy"
+              element={
+                <PageTransition>
+                  <PrivacyPolicy />
                 </PageTransition>
               }
             />
