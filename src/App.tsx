@@ -12,7 +12,6 @@ import Tools from "./pages/Tools";
 import ToolDetail from "./pages/ToolDetail";
 import Submit from "./pages/Submit";
 import Report from "./pages/Report";
-import OSINT from "./pages/OSINT";
 import GoogleDork from "./pages/GoogleDork";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "@/context/AuthContext";
@@ -117,14 +116,6 @@ const App = () => (
               element={
                 <PageTransition>
                   <Report />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/osint"
-              element={
-                <PageTransition>
-                  <OSINT />
                 </PageTransition>
               }
             />

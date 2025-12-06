@@ -266,25 +266,30 @@ const Collections = () => {
         <div className="min-h-screen bg-background">
             <Header />
 
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
                 <div className="max-w-6xl mx-auto space-y-6">
                     {/* HEADER */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
                         <div>
-                            <h1 className="text-4xl font-bold flex items-center gap-3">
-                                <FolderOpen className="h-8 w-8 text-primary" />
+                            <h1 className="text-2xl sm:text-4xl font-bold flex items-center gap-2 sm:gap-3">
+                                <FolderOpen className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                                 Tool Collections
                             </h1>
-                            <p className="text-muted-foreground">
+                            <p className="text-sm sm:text-base text-muted-foreground">
                                 Curated lists of cybersecurity tools
                             </p>
                         </div>
 
                         {/* Create Button */}
-                        <Button onClick={() => setIsCreateOpen(true)}>
+                        <Button
+                            size="sm"
+                            className="w-full sm:w-auto sm:size-default"
+                            onClick={() => setIsCreateOpen(true)}
+                        >
                             <Plus className="h-4 w-4 mr-2" />
                             Create Collection
                         </Button>
+
                     </div>
 
                     {/* COLLECTION GRID */}
@@ -294,9 +299,9 @@ const Collections = () => {
 
                             return (
                                 <Card key={collection.id} className="hover:shadow-lg transition-shadow">
-                                    <CardHeader>
+                                    <CardHeader className="p-3 sm:p-6">
                                         <div className="flex items-start justify-between">
-                                            <CardTitle className="text-xl">{collection.name}</CardTitle>
+                                            <CardTitle className="text-base sm:text-xl line-clamp-1">{collection.name}</CardTitle>
 
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
@@ -330,7 +335,7 @@ const Collections = () => {
                                             </DropdownMenu>
                                         </div>
 
-                                        <CardDescription className="line-clamp-2">
+                                        <CardDescription className="text-xs sm:text-sm line-clamp-2">
                                             {collection.description}
                                         </CardDescription>
                                     </CardHeader>
@@ -416,7 +421,7 @@ const Collections = () => {
 
                     {/* CREATE COLLECTION DIALOG */}
                     <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                        <DialogContent className="max-w-2xl max-h-[90vh] flex flex-col">
+                        <DialogContent className="max-w-[95vw] sm:max-w-lg max-h-[90vh] overflow-y-auto">
                             <DialogHeader>
                                 <DialogTitle>Create New Collection</DialogTitle>
                                 <DialogDescription>
@@ -477,7 +482,7 @@ const Collections = () => {
                                         />
                                     </div>
 
-                                    <ScrollArea className="h-[200px] rounded-md border p-4">
+                                    <ScrollArea className="h-[180px] sm:h-[240px] rounded-md border p-2 sm:p-4">
                                         <div className="space-y-3">
                                             {filteredTools.length === 0 ? (
                                                 <p className="text-sm text-muted-foreground text-center py-4">

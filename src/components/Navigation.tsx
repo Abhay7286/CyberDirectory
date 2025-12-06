@@ -69,17 +69,6 @@ const Navigation = () => {
             </Link>
 
             <Link
-              to="/osint"
-              className={`text-sm font-medium hover:text-primary transition-colors ${
-                location.pathname === "/osint"
-                  ? "text-black"
-                  : "text-muted-foreground"
-              }`}
-            >
-              OSINT
-            </Link>
-
-            <Link
               to="/google-dork"
               className={`text-sm font-medium hover:text-primary transition-colors ${
                 location.pathname === "/google-dork"
@@ -109,7 +98,7 @@ const Navigation = () => {
                   : "text-muted-foreground"
               }`}
             >
-              roadmap
+              Roadmap
             </Link>
             <Link
               to="/collections"
@@ -119,7 +108,7 @@ const Navigation = () => {
                   : "text-muted-foreground"
               }`}
             >
-              collections
+              Collections
             </Link>
 
             {user ? (
