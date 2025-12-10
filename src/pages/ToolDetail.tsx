@@ -13,6 +13,7 @@ import { Shield, ExternalLink, Github, Heart, Star, Calendar, Flag, ArrowLeft, S
 import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
 import ResourcesSection from "@/components/ResourceSection";
+import ReviewSection from "@/components/ReviewSection";
 
 const ToolDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -458,6 +459,9 @@ const ToolDetail = () => {
           </div>
         </div>
         <ResourcesSection toolId={tool.id} />
+        <div className="max-w-3xl mx-auto px-4 my-20">
+          <ReviewSection toolId={tool.id} />
+        </div>
       </div>
       <Footer />
     </div>
