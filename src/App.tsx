@@ -22,6 +22,7 @@ import Comparison from "./pages/Camparison";
 import Roadmap from "./pages/Roadmap";
 import Collections from "./pages/Collections";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AdminRoute from "./components/AdminRoute";
 
 const queryClient = new QueryClient();
 
@@ -163,7 +164,9 @@ const App = () => (
               path="/admin"
               element={
                 <PageTransition>
-                  <Admin />
+                  <AdminRoute>
+                    <Admin />
+                  </AdminRoute>
                 </PageTransition>
               }
             />

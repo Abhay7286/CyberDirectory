@@ -10,6 +10,7 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authMode, setAuthMode] = useState<"login" | "signup">("login");
   const { user } = useAuth();
+  console.log("Current User:", user?.role);
   const navigate = useNavigate();
 
   const handleLogin = () => {
