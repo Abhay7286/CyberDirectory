@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import ToolSubmissions from "./ToolSubmissions";
 import ToolReports from "./ToolReports";
 
-const AdminSubmissions = () => {
+const Admin = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -16,4 +16,4 @@ const AdminSubmissions = () => {
   );
 };
 
-export default AdminSubmissions;
+export default Admin;

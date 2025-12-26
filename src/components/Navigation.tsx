@@ -9,8 +9,8 @@ const Navigation = () => {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authMode, setAuthMode] = useState<"login" | "signup">("login");
-  const { user } = useAuth();
-  console.log("Current User:", user?.role);
+  const { role,user } = useAuth();
+  console.log("Current role:", role);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -134,7 +134,7 @@ const Navigation = () => {
                   Profile
                 </Button>
 
-                {user.role === "admin" && (
+                {role === "admin" && (
                   <Button
                     variant="outline"
                     size="sm"
@@ -268,7 +268,7 @@ const Navigation = () => {
                       Profile
                     </Button>
 
-                    {user.role === "admin" && (
+                    {role === "admin" && (
                       <Button
                         variant="outline"
                         className="w-full justify-start gap-2"

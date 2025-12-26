@@ -72,124 +72,125 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-         <ScrollToTop />
-          <ScrollProgressBar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <PageTransition>
-                  <Index />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/tools"
-              element={
-                <PageTransition>
-                  <Tools />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/tools/:id"
-              element={
-                <PageTransition>
-                  <ToolDetail />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/submit"
-              element={
-                <PageTransition>
-                  <Submit />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/report"
-              element={
-                <PageTransition>
-                  <Report />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/google-dork"
-              element={
-                <PageTransition>
-                  <GoogleDork />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <PageTransition>
-                  <Profile />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/compare"
-              element={
-                <PageTransition>
-                  <Comparison />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/roadmap"
-              element={
-                <PageTransition>
-                  <Roadmap/>
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/collections"
-              element={
-                <PageTransition>
-                  <Collections/>
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/admin"
-              element={
-                <PageTransition>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <ScrollProgressBar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PageTransition>
+                    <Index />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tools"
+                element={
+                  <PageTransition>
+                    <Tools />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tools/:id"
+                element={
+                  <PageTransition>
+                    <ToolDetail />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/submit"
+                element={
+                  <PageTransition>
+                    <Submit />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/report"
+                element={
+                  <PageTransition>
+                    <Report />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/google-dork"
+                element={
+                  <PageTransition>
+                    <GoogleDork />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <PageTransition>
+                    <Profile />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/compare"
+                element={
+                  <PageTransition>
+                    <Comparison />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/roadmap"
+                element={
+                  <PageTransition>
+                    <Roadmap />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/collections"
+                element={
+                  <PageTransition>
+                    <Collections />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
                   <AdminRoute>
-                    <Admin />
+                    <PageTransition>
+                      <Admin />
+                    </PageTransition>
                   </AdminRoute>
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/privacy-policy"
-              element={
-                <PageTransition>
-                  <PrivacyPolicy />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <PageTransition>
-                  <NotFound />
-                </PageTransition>
-              }
-            />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
+                }
+              />
+
+              <Route
+                path="/privacy-policy"
+                element={
+                  <PageTransition>
+                    <PrivacyPolicy />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <PageTransition>
+                    <NotFound />
+                  </PageTransition>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
     </HelmetProvider>
   </QueryClientProvider>
 );
